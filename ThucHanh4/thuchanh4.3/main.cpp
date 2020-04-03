@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+class HANG;
 class DATE
 {
     friend class HANG;
+    friend int getY(HANG a);
     int D,M,Y;
 
 };
@@ -12,6 +14,7 @@ class HANG
     int Mahang;
     string Tenhang;
     DATE Ngaysx;
+    friend int getY(HANG a);
 public:
     void nhap()
     {
@@ -30,10 +33,17 @@ public:
     }
     void xuat()
     {
-        if(Ngaysx.Y == 2017)
+
+
         cout<<setw(15)<<Mahang<<setw(15)<<Tenhang<<setw(15)<<Ngaysx.D<<"/"<<Ngaysx.M<<"/"<<Ngaysx.Y<<endl;
     }
+
 };
+ int getY(HANG a)
+    {
+
+        return a.Ngaysx.Y;
+    }
 
 int main()
 {
@@ -48,6 +58,7 @@ int main()
     cout<<setw(15)<<"ma hang"<<setw(15)<<"ten hang"<<setw(15)<<"ngay sx"<<endl;
     for(int i=0;i<n;i++)
     {
+        if(getY(a[i])==2017)
         a[i].xuat();
     }
 
