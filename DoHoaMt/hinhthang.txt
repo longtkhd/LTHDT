@@ -1,0 +1,41 @@
+#include <graphics.h>
+#include <conio.h>
+#include <math.h>
+
+void Hinhthang_x(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4)
+{
+    //          x1y1        x2y2
+    //
+    //     x4y4                    x3y3
+
+    float cl,cr,xl,xr;
+    int y;
+    cl=(x4-x1)/(y4-y1);
+    cr=(x3-x2)/(y3-y2);
+    y=y1+1;
+    while (y<y4)
+    {
+        xl= x1+(y-y1)*cl;
+        xr=x2+(y-y2)*cr;
+        setcolor(4);
+        line((int)xl,y,(int)xr,y);
+        delay(1);
+        y++;
+    }
+}
+
+// Sinh viên t? vi?t tô màu theo chi?u y
+
+int main()
+{
+    initwindow(700, 700);
+
+    line(50,50,300,50);
+    line(100,150,250,150);
+    line(50,50,100,150);
+    line(300,50,250,150);
+    Hinhthang_x(50,50,300,50,250,150,100,150);
+
+    getch();
+    closegraph();
+}

@@ -1,0 +1,227 @@
+#include<graphics.h>
+#include<bits/stdc++.h>
+void BresenhamX1(int x1, int y1,int x2,int y2)
+{
+    int dx=x2-x1;
+    int dy=y2-y1;
+    int p= 2*dy-dx;
+    int const1=2*dy;
+    int const2=2*(dy-dx);
+    int x=x1;
+    int y=y1;
+    putpixel(x,y,3);
+
+    while(x<=x2)
+    {
+
+        if(p<0)
+            p+= const1;
+        else
+        {
+            p+=const2;
+            y++;
+        }
+        x++;
+        putpixel(x,y,3);
+          delay(1);
+    }
+}
+void BresenhamX2(int x1, int y1,int x2,int y2)
+{
+    int dx=x1-x2;
+    int dy=y2-y1;
+    int p= 2*dy-dx;
+    int const1=2*dy;
+    int const2=2*(dy-dx);
+    int x=x1;
+    int y=y1;
+    putpixel(x,y,3);
+
+    while(x>=x2)
+    {
+
+        if(p<0)
+            p+= const1;
+        else
+        {
+            p+=const2;
+            y++;
+        }
+        x--;
+        putpixel(x,y,3);
+          delay(1);
+    }
+}
+void BresenhamX3(int x1, int y1,int x2,int y2)
+{
+    int dx=x1-x2;
+    int dy=y1-y2;
+    int p= 2*dy-dx;
+    int const1=2*dy;
+    int const2=2*(dy-dx);
+    int x=x1;
+    int y=y1;
+    putpixel(x,y,3);
+
+    while(x>=x2)
+    {
+
+        if(p<0)
+            p+= const1;
+        else
+        {
+            p+=const2;
+            y--;
+        }
+        x--;
+        putpixel(x,y,3);
+          delay(1);
+    }
+}
+void BresenhamX4(int x1, int y1,int x2,int y2)
+{
+    int dx=x2-x1;
+    int dy=y1-y2;
+    int p= 2*dy-dx;
+    int const1=2*dy;
+    int const2=2*(dy-dx);
+    int x=x1;
+    int y=y1;
+    putpixel(x,y,3);
+
+    while(x<=x2)
+    {
+
+        if(p<0)
+            p+= const1;
+        else
+        {
+            p+=const2;
+            y--;
+        }
+        x++;
+        putpixel(x,y,3);
+          delay(1);
+    }
+}
+void BresenhamY1(int x1, int y1,int x2,int y2)
+{
+    int dx=x2-x1;
+    int dy=y2-y1;
+    int p= 2*dx-dy;
+    int const1=2*dx;
+    int const2=2*(dx-dy);
+    int x=x1;
+    int y=y1;
+    putpixel(x,y,3);
+
+    while(y<=y2)
+    {
+
+        if(p<0)
+            p+= const1;
+        else
+        {
+            p+=const2;
+            x++;
+        }
+        y++;
+        putpixel(x,y,3);
+          delay(1);
+    }
+}
+void BresenhamY2(int x1, int y1,int x2,int y2)
+{
+    int dx=x1-x2;
+    int dy=y2-y1;
+    int p= 2*dx-dy;
+    int const1=2*dx;
+    int const2=2*(dx-dy);
+    int x=x1;
+    int y=y1;
+    putpixel(x,y,3);
+
+    while(y<=y2)
+    {
+
+        if(p<0)
+            p+= const1;
+        else
+        {
+            p+=const2;
+            x--;
+        }
+        y++;
+        putpixel(x,y,3);
+          delay(1);
+    }
+}
+
+
+void BresenhamY3(int x1, int y1,int x2,int y2)
+{
+    int dx=x1-x2;
+    int dy=y1-y2;
+    int p= 2*dx-dy;
+    int const1=2*dx;
+    int const2=2*(dx-dy);
+    int x=x1;
+    int y=y1;
+    putpixel(x,y,3);
+
+    while(y>=y2)
+    {
+
+        if(p<0)
+            p+= const1;
+        else
+        {
+            p+=const2;
+            x--;
+        }
+        y--;
+        putpixel(x,y,3);
+          delay(1);
+    }
+}
+void BresenhamY4(int x1, int y1,int x2,int y2)
+{
+    int dx=x2-x1;
+    int dy=y1-y2;
+    int p= 2*dx-dy;
+    int const1=2*dx;
+    int const2=2*(dx-dy);
+    int x=x1;
+    int y=y1;
+    putpixel(x,y,3);
+
+    while(y>=y2)
+    {
+
+        if(p<0)
+            p+= const1;
+        else
+        {
+            p+=const2;
+            x++;
+        }
+        y--;
+        putpixel(x,y,3);
+        delay(1);
+    }
+}
+
+int main()
+{
+    initwindow(1000,1000);
+   // BresenhamX1(300,300,450,400);//0<m<1
+    //BresenhamY1(300,300,450,600);//1<m<vocung
+    BresenhamX2(300,300,150,400);//0>m>-1
+    //BresenhamY2(300,300,150,600);-1<m< - vocung
+   //BresenhamX3(300,300,150,250);
+   // BresenhamY3(300,300,150,100);
+   // BresenhamX4(300,300,450,250);
+   // BresenhamY4(300,300,450,100);
+    getch();
+    closegraph();
+}

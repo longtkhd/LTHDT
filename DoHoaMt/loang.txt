@@ -1,0 +1,25 @@
+#include <graphics.h>
+#include <conio.h>
+#include <math.h>
+
+void Loang(int x, int y, int mb, int mt)
+{
+    if((getpixel(x,y)!=mb)&&(getpixel(x,y)!=mt))
+    {
+        putpixel(x,y,mt);
+        delay(1);
+        Loang(x+1,y,mb,mt);
+        Loang(x-1,y,mb,mt);
+        Loang(x,y+1,mb,mt);
+        Loang(x,y-1,mb,mt);
+    }
+}
+
+int main()
+{
+    initwindow(700, 700);
+    circle(200,200,50);
+    Loang(200,200,15,4);
+    getch();
+    closegraph();
+}

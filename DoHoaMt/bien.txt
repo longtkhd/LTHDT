@@ -1,0 +1,70 @@
+#include <graphics.h>
+#include <conio.h>
+#include <math.h>
+
+//Tô m?t n?a x
+void Tmb_nua_x(int x,int y, int mb,int mt,int u)
+{
+    int x1,x2;
+    do
+    {
+        x1=x;x2=x;
+        while (getpixel(x1-1,y)!=mb) x1--;
+        while (getpixel(x2+1,y)!=mb) x2++;
+        setcolor(mt);
+        line(x1,y,x2,y);
+        delay(1);
+        while (getpixel(x1,y+u)==mb) x1++;
+        if (x1<=x2)
+        {
+            x=x1;
+            y+=u;
+        }
+    } while (x1<x2);
+}
+//Tô c? x
+void Bien_x(int x, int y, int mb, int mt)
+{
+    Tmb_nua_x(x,y,mb,mt,1);
+    Tmb_nua_x(x,y,mb,mt,-1);
+}
+
+
+//Tô m?t n?a y
+void Tmb_nua_y(int x,int y, int mb,int mt,int u)
+{
+    int y1,y2;
+    do
+    {
+        y1=y;y2=y;
+        while (getpixel(x,y1-1)!=mb) y1--;
+        while (getpixel(x,y2+1)!=mb) y2++;
+        setcolor(mt);
+        line(x,y1,x,y2);
+        delay(1);
+        while (getpixel(x+u,y1)==mb) y1++;
+        if (y1<=y2)
+        {
+            y=y1;
+            x+=u;
+        }
+    } while (y1<y2);
+}
+//Tô c? y
+void Bien_y(int x, int y, int mb, int mt)
+{
+    Tmb_nua_y(x,y,mb,mt,1);
+    Tmb_nua_y(x,y,mb,mt,-1);
+}
+
+int main()
+{
+    initwindow(1000, 600);
+    circle(200,200,200);
+    Bien_x(200,200,15,4);
+    setcolor(15);
+    circle(600,200,200);
+    Bien_y(600,200,15,4);
+    getch();
+    closegraph();
+}

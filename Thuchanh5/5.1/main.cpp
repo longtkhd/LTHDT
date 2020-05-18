@@ -104,27 +104,19 @@ int main()
     int n;
     cout<<"nhap so nhan vien:";
     cin>>n;
-    NhanVien a[n];
+    NhanVien a[30];
     for(int i=0;i<n;i++){
         a[i].nhap();
     }
-    In_taichinh(a,n);
-    Sort_Nv(a,n);
-    cout<<"sau khi sort:"<<endl;
-    for(int i=0;i<n;i++){
-        a[i].xuat();
-    }
+
+
     Insert_nv(a,n);
     cout<<"sau khi chen:"<<endl;
     for(int i=0;i<n;i++){
         a[i].xuat();
     }
 
-    xoa_nv(a,n);
-    cout<<"sau khi xoa:"<<endl;
-    for(int i=0;i<n;i++){
-        a[i].xuat();
-    }
+
 
 
 }
